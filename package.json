@@ -5,9 +5,9 @@
     "main": "source/server.ts",
     "scripts": {
         "watch": "tsc -w",
-        "start": "node build/server.js",
+        "build": "node build/server.js",
         "debug": "nodemon --inspect --exec ts-node src/server.ts",
-        "dev": "nodemon --exec ts-node src/server.ts"
+        "start": "nodemon --exec ts-node src/server.ts"
     },
     "author": "",
     "license": "ISC",
