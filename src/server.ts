@@ -3,17 +3,18 @@ import http from 'http';
 import { applyCorsMiddleware, applyErrorHandlingMiddleware, applyParseBodyMiddleware, applyRulesAPIMiddleware } from './middleware';
 import { routesMiddleware } from './middleware/routes';
 import logging from './config/logging';
-import config from './config/config';
+import {config} from './config/config';
 const NAMESPACE = 'Server';
 
-const router = Express();
+const app = Express();
+app.use(Express.json());
 
-applyCorsMiddleware(router);
-applyParseBodyMiddleware(router);
-applyRulesAPIMiddleware(router);
-routesMiddleware(router);
-applyErrorHandlingMiddleware(router);
+applyParseBodyMiddleware(app);
+applyCorsMiddleware(app);
+applyRulesAPIMiddleware(app);
+routesMiddleware(app);
+applyErrorHandlingMiddleware(app);
 
-const httpServer = http.createServer(router);
+const httpServer = http.createServer(app);
 
 httpServer.listen(config.server.port, () => logging.info(NAMESPACE, `Server is running ${config.server.hostname}:${config.server.port}`));

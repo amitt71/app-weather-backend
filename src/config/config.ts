@@ -11,8 +11,7 @@ const SERVER = {
     port: SERVER_PORT
 };
 
-const config = {
+export const config = {
     server: SERVER
 };
 
-export default config;
