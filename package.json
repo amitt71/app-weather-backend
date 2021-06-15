@@ -5,7 +5,7 @@
     "main": "source/server.ts",
     "scripts": {
         "watch": "tsc -w",
-        "build": "node build/server.js",
+        "build": "tsc --build && node build/src/server.js",
         "debug": "nodemon --inspect --exec ts-node src/server.ts",
         "start": "nodemon --exec ts-node src/server.ts"
     },
