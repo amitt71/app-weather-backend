@@ -67,3 +67,8 @@ export const defaultCityForecast: CityForecast = {
         }
     }
 };
+
+export interface ICityToKey {
+    key: string,
+    city: string,
+}
